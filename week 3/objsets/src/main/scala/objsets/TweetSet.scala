@@ -57,8 +57,6 @@ abstract class TweetSet {
    */
     def union(that: TweetSet): TweetSet
 
-
-  
   /**
    * Returns the tweet from this set which has the greatest retweet count.
    *
@@ -118,6 +116,8 @@ class Empty extends TweetSet {
   def filterAcc(p: Tweet => Boolean, acc: TweetSet): TweetSet = new Empty
 
   override def union(that: TweetSet): TweetSet = that
+
+  override def mostRetweeted: Tweet = throw new NoSuchElementException
   
   /**
    * The following methods are already implemented
@@ -156,6 +156,16 @@ class NonEmpty(elem: Tweet, left: TweetSet, right: TweetSet) extends TweetSet {
 
   def union(that: TweetSet): TweetSet = {
     right union (left union (that.incl(elem)))
+  }
+
+  override def mostRetweeted: Tweet = {
+    def getMaxTweet(t1: Tweet, t2: Tweet): Tweet =
+      if(t1.retweets > t2.retweets) t1 else t2
+
+    if (left.isEmpty && right.isEmpty) elem
+    else if (left.isEmpty) getMaxTweet(right.mostRetweeted,elem)
+    else if (right.isEmpty) getMaxTweet(left.mostRetweeted,elem)
+    else elem
   }
     
   /**
