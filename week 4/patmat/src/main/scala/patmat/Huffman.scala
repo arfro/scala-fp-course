@@ -155,7 +155,6 @@ object Huffman {
         case h :: Nil => h
         case Nil => throw new Exception("CodeTree empty")
       }
-      
     }
   
 
