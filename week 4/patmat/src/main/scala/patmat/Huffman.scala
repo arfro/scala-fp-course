@@ -216,11 +216,7 @@ object Huffman {
         case _ => throw new Exception("char not present in the tree")
       }
     }
-    print(s"to encode: $text")
-    text.flatMap(ch => {
-      print(s"\n$ch encoded as ${encodeChar(tree, ch)}")
-      encodeChar(tree, ch)
-    })
+    text.flatMap(ch => encodeChar(tree, ch))
   }
 
   // Part 4b: Encoding using code table
