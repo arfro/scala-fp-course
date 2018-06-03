@@ -241,8 +241,8 @@ object Huffman {
     * a valid code tree that can be represented as a code table. Using the code tables of the
     * sub-trees, think of how to build the code table for the entire tree.
     */
-  def convert(tree: CodeTree): CodeTable = {
-    case Leaf(ch, w) => List(ch, List())
+  def convert(tree: CodeTree): CodeTable = tree match {
+    case Leaf(ch, w) => List((ch, List()))
     case Fork(l, r, ch, w) => mergeCodeTables(convert(l), convert(r))
   }
 
@@ -262,5 +262,5 @@ object Huffman {
     * and then uses it to perform the actual encoding.
     */
   def quickEncode(tree: CodeTree)(text: List[Char]): List[Bit] =
-    text.flatMap.codeBits(convert(tree))
+    text flatMap codeBits(convert(tree))
 }
