@@ -77,7 +77,8 @@ week 3/objsets/project
 week 3/objsets/*.sbt
 week 3/objsets/project
 week 3/objsets/scalastyle
-week 3/objsets/build.sbt
-week 3/objsets/assignment.sbt
+week 4/patmat/*.sbt
+week 4/patmat/project
+week 4/patmat/scalastyle
 
 # End of https://www.gitignore.io/api/intellij
