@@ -111,7 +111,27 @@ object Anagrams {
    *  Note: the resulting value is an occurrence - meaning it is sorted
    *  and has no zero-entries.
    */
-  def subtract(x: Occurrences, y: Occurrences): Occurrences = ???
+  def subtract(x: Occurrences, y: Occurrences): Occurrences = {
+
+    val xPartitioned = x.partition(
+      occurrenceX => y.exists(
+        occurrenceY => (occurrenceX._1 == occurrenceY._1)
+      )
+    )
+    val yPartitionOfXUpdated = for {
+      (x, y) <- xPartitioned._1.zip(y)
+      if (x._2 > y._2)
+    } yield (x._1,x._2-y._2)
+
+    (yPartitionOfXUpdated ++ xPartitioned._2).sorted
+
+  }
+
+    /*{
+      val (p1,p2) = x.partition(a => y.exists(b => a._1 == b._1))
+      val diffed = for( (a,b) <- p1.zip(y) if a._2 != b._2) yield (a._1,a._2-b._2)
+      (p2 ++ diffed).sorted
+    }*/
 
   /** Returns a list of all anagram sentences of the given sentence.
    *
