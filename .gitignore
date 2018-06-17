@@ -85,5 +85,8 @@ week 4/patmat/scalastyle
 week 6/forcomp/*.sbt
 week 6/forcomp/project
 week 6/forcomp/scalastyle
+week 4/patmat/*.sbt
+week 4/patmat/project
+week 4/patmat/scalastyle
 
 # End of https://www.gitignore.io/api/intellij
