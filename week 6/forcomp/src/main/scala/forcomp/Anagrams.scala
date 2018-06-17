@@ -127,12 +127,6 @@ object Anagrams {
 
   }
 
-    /*{
-      val (p1,p2) = x.partition(a => y.exists(b => a._1 == b._1))
-      val diffed = for( (a,b) <- p1.zip(y) if a._2 != b._2) yield (a._1,a._2-b._2)
-      (p2 ++ diffed).sorted
-    }*/
-
   /** Returns a list of all anagram sentences of the given sentence.
    *
    *  An anagram of a sentence is formed by taking the occurrences of all the characters of
@@ -173,5 +167,23 @@ object Anagrams {
    *
    *  Note: There is only one anagram of an empty sentence.
    */
-  def sentenceAnagrams(sentence: Sentence): List[Sentence] = ???
+  def sentenceAnagrams(sentence: Sentence): List[Sentence] = {
+
+    def innerLoop(occ: Occurrences) : List[Sentence] = {
+      occ.isEmpty match {
+        case true => List(Nil)
+        case false => {
+          val allCombinations = combinations(occ)
+          for (
+               comb <- allCombinations.filter(comb => dictionaryByOccurrences.contains(comb));
+               word <- dictionaryByOccurrences(comb);
+               sentence <- innerLoop(subtract(occ, comb))
+              )
+            yield (word :: sentence)
+        }
+      }
+    }
+
+    innerLoop(sentenceOccurrences(sentence))
+  }
 }
