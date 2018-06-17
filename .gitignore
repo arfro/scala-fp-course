@@ -69,24 +69,21 @@ fabric.properties
 
 #assignments and scala
 target/
-week*/project/
-week*/scalastyle/
-week*/target/
-week*/.idea
-week 3/objsets/project
-week 3/objsets/*.sbt
-week 3/objsets/project
-week 3/objsets/scalastyle
-week 3/objsets/build.sbt
-week 3/objsets/assignment.sbt
-week 4/patmat/*.sbt
-week 4/patmat/project
-week 4/patmat/scalastyle
-week 6/forcomp/*.sbt
-week 6/forcomp/project
-week 6/forcomp/scalastyle
-week 4/patmat/*.sbt
-week 4/patmat/project
-week 4/patmat/scalastyle
+fp-principles-in-scala/week*/project/
+fp-principles-in-scala/week*/scalastyle/
+fp-principles-in-scala/week*/target/
+fp-principles-in-scala/week*/.idea
+fp-principles-in-scala/week 3/objsets/project
+fp-principles-in-scala/week 3/objsets/*.sbt
+fp-principles-in-scala/week 3/objsets/project
+fp-principles-in-scala/week 3/objsets/scalastyle
+fp-principles-in-scala/week 3/objsets/build.sbt
+fp-principles-in-scala/week 3/objsets/assignment.sbt
+fp-principles-in-scala/week 4/patmat/*.sbt
+fp-principles-in-scala/week 4/patmat/project
+fp-principles-in-scala/week 4/patmat/scalastyle
+fp-principles-in-scala/week 6/forcomp/*.sbt
+fp-principles-in-scala/week 6/forcomp/project
+fp-principles-in-scala/week 6/forcomp/scalastyle
 
 # End of https://www.gitignore.io/api/intellij
